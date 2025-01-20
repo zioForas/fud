@@ -1,0 +1,504 @@
+/* Reset and base styles */
+:root {
+    --primary-color: #FF4500;
+    --secondary-color: #141414;
+    --accent-color: #FF6B4A;
+    --text-color: #ffffff;
+    --bg-color: #0D0D0D;
+    --card-bg: #1A1A1A;
+    --gradient-start: #FF4500;
+    --gradient-end: #FF6B4A;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+/* Header and Navigation */
+header {
+    background-color: rgba(13, 13, 13, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.3);
+}
+
+.logo h1 {
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(255, 69, 0, 0.3);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin-left: 2rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+}
+
+/* Hero Section */
+#hero {
+    height: 100vh;
+    background: linear-gradient(rgba(13, 13, 13, 0.8), rgba(13, 13, 13, 0.8)),
+                url('https://i.ibb.co/VqFBxrL/fud-banner.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(255, 69, 0, 0.2) 0%, transparent 70%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 1rem;
+}
+
+.hero-content h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(255, 69, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.token-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.info-item {
+    background: rgba(42, 31, 31, 0.9);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.1);
+}
+
+.info-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.info-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-button.primary {
+    background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+    color: var(--text-color);
+    font-weight: bold;
+    border: none;
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.3);
+}
+
+/* Sections */
+section {
+    padding: 5rem 1rem;
+}
+
+section h2 {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+
+/* About Section */
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+.about-text {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.about-text h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.stat-item {
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.1);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Tokenomics Section */
+.tokenomics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tokenomics-item {
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.tokenomics-item:hover {
+    transform: translateY(-5px);
+}
+
+.tokenomics-item i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.tokenomics-item h3 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.tokenomics-item p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Roadmap Section */
+.roadmap-timeline {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.roadmap-item {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.1);
+}
+
+.roadmap-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.roadmap-item ul {
+    list-style: none;
+}
+
+.roadmap-item ul li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.roadmap-item ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+/* Community Section */
+.community-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.community-text h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.social-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.social-button.discord {
+    background-color: var(--secondary-color);
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.social-button.telegram {
+    background-color: var(--secondary-color);
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.social-button:hover {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.3);
+}
+
+.contact-form {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.1);
+}
+
+.contact-form h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form input {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.contact-form input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-form button {
+    padding: 1rem;
+    background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+    color: var(--text-color);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.3);
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-color);
+    padding: 3rem 1rem 1rem;
+    border-top: 2px solid var(--primary-color);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-info h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-links a,
+.social-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.social-links a:hover {
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    section h2 {
+        font-size: 2rem;
+    }
+    
+    .community-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .token-info {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+    
+    .social-links {
+        flex-direction: column;
+    }
+} 
